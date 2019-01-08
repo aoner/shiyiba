@@ -79,19 +79,31 @@ defmodule Sky.Accounts.User do
   """
   def profile_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:name, :age, :sex, :province, :city, :address])
-    |> cast_attachments(attrs, [:avatar])
-    |> validate_required([:name, :avatar, :age, :sex, :province, :city, :address])
-    |> validate_exclusion(:name, ~w(admin superadmin 你大爷))
-    |> validate_length(:name, min: 2, max: 10)
+    |> cast(attrs, [:age, :sex, :province, :city, :address])
+    |> validate_required([:age, :sex, :province, :city, :address])
     |> validate_inclusion(:age, 18..70)
     |> validate_inclusion(:sex, ["男","女"])
     |> validate_length(:province, min: 3, max: 10)
     |> validate_length(:city, min: 2, max: 20)
     |> validate_length(:address, min: 5, max: 50)
   end
+
+  @doc """
+  修改帐号 changeset
+  """
+  def account_changeset(%User{} = user, attrs) do
+    user
+    |> cast(attrs, [:name])
+    |> cast_attachments(attrs, [:avatar])
+    |> validate_required([:name, :avatar])
+    |> validate_exclusion(:name, ~w(admin superadmin 你大爷))
+    |> validate_length(:name, min: 2, max: 10)
+  end
   
-  def update_password_changeset(user, attrs) do
+  @doc """
+  修改密码 changeset
+  """
+  def password_changeset(user, attrs) do
     user
     |> cast(attrs, [:password])
     |> validate_required([:password])

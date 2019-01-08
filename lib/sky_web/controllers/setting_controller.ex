@@ -13,6 +13,7 @@ defmodule SkyWeb.SettingController do
   #     apply(__MODULE__, action_name(conn), [conn, conn.params])
   #   end
   # end
+
   def profile(conn, _) do
     changeset = Accounts.change_user(current_user(conn))
     render(conn, "profile.html", changeset: changeset)
@@ -52,8 +53,8 @@ defmodule SkyWeb.SettingController do
   end
 
   def update_account(conn, params) do
-    case Accounts.update_user(current_user(conn), params) do
-      {:ok, user} ->
+    case Accounts.update_user_account(current_user(conn), params) do
+      {:ok, _} ->
         conn
         |> put_flash(:info, "帐号更新成功")
         # |> render(:account, changeset: Accounts.change_user(user))
@@ -67,7 +68,7 @@ defmodule SkyWeb.SettingController do
 
   def update_password(conn, params) do
     case Accounts.update_user_password(current_user(conn), params) do
-      {:ok, user} ->
+      {:ok, _} ->
         conn
         |> configure_session(drop: true)
         |> put_flash(:info, "密码更新成功")
@@ -77,12 +78,10 @@ defmodule SkyWeb.SettingController do
         |> put_flash(:danger, "新密码无效")
         |> render(:password, changeset: changeset)
       {:error, reason} ->
-        changeset = Accounts.user_update_password_changeset()
-
+        # changeset = Accounts.user_update_password_changeset()
         conn
         |> put_flash(:danger, reason)
         |> redirect(to: setting_password_path(conn, :password))
-        # |> render(:password, changeset: changeset)
     end
   end
 end

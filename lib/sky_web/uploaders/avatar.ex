@@ -23,17 +23,15 @@ defmodule Sky.Avatar do
   end
 
   # Override the persisted filenames:
-  def filename(version, _) do
-    version
-  end
+  def filename(version, _), do: version
 
-  # def filename(version,  {file, scope}) do
+  # def filename(version,  {file, _}) do
   #   # # 获取文件扩展名
-  #   # extname = Path.extname(file.file_name)
+  #   extname = Path.extname(file.file_name)
   #   # # file_name = Path.basename(file.file_name, extname)
   #   # # extname
   #   # file_name = Path.basename(file.file_name, Path.extname(file.file_name))
-  #   "#{version}"
+  #   "#{version}#{extname}"
   # end
 
   defp images_dir(user) do
@@ -42,13 +40,13 @@ defmodule Sky.Avatar do
   end
 
   # Override the storage directory:
-  def storage_dir(version, { _, scope }) do
-    "users/avatars/#{images_dir(scope)}"
+  def storage_dir(_, { _, scope }) do
+    "users/avatars/#{images_dir(scope)}/#{scope.id}"
   end
 
   # Provide a default URL if there hasn't been a file uploaded
   def default_url() do
-    "users/avatars/default.png"
+    "users/avatars/thumb.png"
   end
 
   # Specify custom headers for s3 objects

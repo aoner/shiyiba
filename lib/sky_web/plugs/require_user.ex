@@ -16,7 +16,7 @@ defmodule Sky.Plugs.RequireUser do
     else
       conn
       |> put_flash(:error, "登录后才能访问")
-      |> redirect(to: user_path(conn, :new))
+      |> redirect(to: signin_path(conn, :new))
       |> halt()
     end
   end

@@ -142,6 +142,23 @@ defmodule Sky.Accounts do
   end
 
   @doc """
+  修改用户帐号
+  ## Examples
+
+      iex> update_user(user, %{field: new_value})
+      {:ok, %User{}}
+
+      iex> update_user(user, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_user_account(%User{} = user, attrs) do
+    user
+    |> User.account_changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
   Deletes a User.
 
   ## Examples
@@ -180,12 +197,5 @@ defmodule Sky.Accounts do
   """
   def signin_changeset(attrs \\ %{}) do
     User.login_changeset(%User{}, attrs)
-  end
-
-  @doc """
-  Returns the user update password changeset.
-  """
-  def user_update_password_changeset(attrs \\%{}) do
-    User.update_password_changeset(%User{}, attrs)
   end
 end
