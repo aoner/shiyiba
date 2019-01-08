@@ -14,18 +14,6 @@ defmodule SkyWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/user", SkyWeb do
-    pipe_through :browser
-    # # 登录
-    # get "/signin", SessionController, :new
-    # post "/signin", SessionController, :create
-    # # 退出
-    # get "/signout", SessionController, :delete
-    # 注册
-    get "/signup", UserController, :new
-    post "/signup", UserController, :create
-  end
-
   scope "/", SkyWeb do
     pipe_through :browser # Use the default browser stack
 
