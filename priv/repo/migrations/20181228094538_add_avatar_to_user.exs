@@ -1,0 +1,9 @@
+defmodule Sky.Repo.Migrations.AddAvatarToUser do
+  use Ecto.Migration
+
+  def change do
+    alter table(:users) do
+      add :avatar, :string, default: ""
+    end
+  end
+end

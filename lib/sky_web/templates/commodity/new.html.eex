@@ -1,0 +1,41 @@
+<h2>New Commodity</h2>
+<%= form_for @changeset, commodity_path(@conn, :create), [multipart: true], fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>发布商品时出错，请检查以下错误提示</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :icon, class: "control-label" %>
+    <%= file_input f, :icon, class: "form-control" %>
+    <%= error_tag f, :icon %>
+  </div>
+  <div class="form-group">
+    <%= label f, :price, class: "control-label" %>
+    <%= number_input f, :price, step: "any", class: "form-control" %>
+    <%= error_tag f, :price %>
+  </div>
+  <div class="form-group">
+    <%= label f, :count, class: "control-label" %>
+    <%= number_input f, :count, step: "any", class: "form-control" %>
+    <%= error_tag f, :count %>
+  </div>
+  <div class="form-group">
+    <%= label f, :summary, class: "control-label" %>
+    <%= text_input f, :summary, class: "form-control" %>
+    <%= error_tag f, :summary %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<span><%= link "Back", to: commodity_path(@conn, :index) %></span>

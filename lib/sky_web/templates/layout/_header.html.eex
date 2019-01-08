@@ -1,0 +1,18 @@
+<header class="header">
+  <nav role="navigation">
+    <div class="navbar-header float-left" id="navbar-header">
+      <a href="/" class="navbar-brand">
+        <b>试一把</b></a>
+    </div>
+    <ul class="nav justify-content-end">
+      <%= if current_user(@conn) do %>
+        <%= render "_navigation_item.html", conn: @conn, text: current_user(@conn).mobile, url: user_path(@conn, :show, current_user(@conn).mobile) %>
+        <%= render "_navigation_item.html", conn: @conn, text: "退出", url: signout_path(@conn, :delete) %>
+      <% else %>
+        <%= render "_navigation_item.html", conn: @conn, text: "注册", url: signup_path(@conn, :new) %>
+        <%= render "_navigation_item.html", conn: @conn, text: "登录", url: signin_path(@conn, :new) %>
+      <% end %>
+    </ul>
+  </nav>
+  <span class="logo"></span>
+</header>

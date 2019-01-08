@@ -1,0 +1,18 @@
+<h2>Show Commodity</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @commodity.name %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @commodity.price %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: commodity_path(@conn, :edit, @commodity) %></span>
+<span><%= link "Back", to: commodity_path(@conn, :index) %></span>

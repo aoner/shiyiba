@@ -1,0 +1,12 @@
+<div class="container-full" style="margin-top: 10px;">
+  <%= for item <- ~w(danger success warning info)a do %>
+    <%= if get_flash(@conn, item) do %>
+    <div class="alert alert-<%= item %> text-center alert-dismissible fade show" role="alert">
+      <%= get_flash(@conn, item) %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% end %>
+  <% end %>
+</div>

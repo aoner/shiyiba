@@ -1,0 +1,7 @@
+<footer class="footer fixed-bottom" id="footer">
+  <div class="d-flex justify-content-around" style="height:3rem;">
+    <div class="p-2">😀<br />大家</div>
+    <div class="p-2">记录</div>
+    <div class="p-2">我的</div>
+  </div>
+</footer>

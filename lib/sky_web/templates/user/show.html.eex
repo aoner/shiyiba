@@ -1,0 +1,31 @@
+<h2>Show User</h2>
+
+<ul>
+  <li>
+    <img class="thumbnail" src="<%= Sky.Avatar.url({@current_user.avatar, @current_user}, :thumb) %>"/>
+  </li>
+  <li>
+    <strong>姓名:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
+    <strong>电话:</strong>
+    <%= @user.mobile %>
+  </li>
+
+  <li>
+    <strong>年龄:</strong>
+    <%= @user.age %>
+  </li>
+
+  <li>
+    <strong>地址:</strong>
+    <%= @user.province %><%= @user.city %><%= @user.address %>
+  </li>
+
+</ul>
+
+<span><%= link "个人资料", to: setting_profile_path(@conn, :profile) %></span>
+<span><%= link "帐号信息", to: setting_account_path(@conn, :account) %></span>
+<span><%= link "登录密码", to: setting_password_path(@conn, :password) %></span>

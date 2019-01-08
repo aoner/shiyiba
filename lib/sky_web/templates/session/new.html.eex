@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading">登录</div>
+  <div class="panel-body post">
+    <div class="inner post">
+    <%= form_for @changeset, signin_path(@conn, :create), fn f -> %>
+      <!--<%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>哎呀！出事了！ 请检查以下错误。</p>
+        </div>
+      <% end %>-->
+      <div class="form-group">
+        <%= label f, :mobile, class: "control-label" %>
+        <%= telephone_input f, :mobile, class: "form-control", required: true, tabindex: 1, placeholder: "手机号" %>
+        <%= error_tag f, :mobile %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :password, class: "control-label" %>
+        <%= password_input f, :password, class: "form-control", required: true, tabindex: 2, placeholder: "帐号密码" %>
+      </div>
+
+      <div class="form-group">
+        <%= submit "登录", class: "btn btn-primary", style: "width:100%;" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

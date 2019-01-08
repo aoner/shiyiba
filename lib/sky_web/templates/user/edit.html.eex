@@ -1,0 +1,54 @@
+<h2>更新个人资料</h2>
+<%= form_for @changeset, user_path(@conn, :update, current_user(@conn)), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>哎呀！出事了！ 请检查以下错误。</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :mobile, class: "control-label" %>
+    <%= text_input f, :mobile, class: "form-control", readonly: true %>
+    <%= error_tag f, :mobile %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :age, class: "control-label" %>
+    <%= text_input f, :age, class: "form-control" %>
+    <%= error_tag f, :age %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :sex, class: "control-label" %>
+    <%= text_input f, :sex, class: "form-control" %>
+    <%= error_tag f, :sex %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :province, class: "control-label" %>
+    <%= text_input f, :province, class: "form-control" %>
+    <%= error_tag f, :province %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :city, class: "control-label" %>
+    <%= text_input f, :city, class: "form-control" %>
+    <%= error_tag f, :city %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :address, class: "control-label" %>
+    <%= text_input f, :address, class: "form-control" %>
+    <%= error_tag f, :address %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "更新", class: "btn btn-primary", style: "width:100%;" %>
+  </div>
+<% end %>
