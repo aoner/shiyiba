@@ -1,7 +1,7 @@
 log/*
-users/
-_build/
-.elixir_ls/
+users/*
+_build/*
+.elixir_ls/*
 
 .DS_Store
 .vscode/
