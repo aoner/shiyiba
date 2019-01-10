@@ -104,7 +104,7 @@ defmodule Sky.Accounts do
     case check_user_password(user, attrs["current_password"]) do
       true ->
         user
-        |> User.update_password_changeset(attrs)
+        |> User.password_changeset(attrs)
         |> Repo.update()
       _ ->
         {:error, "当前密码无效"}

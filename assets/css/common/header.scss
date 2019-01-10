@@ -1,13 +1,66 @@
 .header{
   padding: 0;
-  background: wheat;
+  background: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   border: 0px;
   color: $primary;
   z-index: 1030;
   line-height: 100%;
-
   nav {
     
+  }
+}
+
+.user{
+  margin:0;
+  padding:2rem 0;
+  background:linear-gradient(#436EEE, rgb(9, 87, 165));
+  .account{
+    padding:0 15px;
+  }
+}
+.account{
+  .set{
+    position:absolute;
+    top:1rem;
+    right:1rem;
+  }
+  .avatar{
+    width:100%;
+    margin:0 auto;
+    text-align:right;
+    img{
+      width:80%;
+      border:2px solid orangered;
+    }
+  }
+  .profile{
+    height:100%;
+    width:100%;
+    display:flex;
+    .info{
+      align-self:center;
+      width:50%;
+      margin-left:2%;
+      line-height:100%;
+      text-align:left;
+      color:white;
+    }
+    h1{
+      margin-bottom:.6rem;
+      font-size:1rem !important;
+      font-weight:400 !important;
+      a{
+        color:white;
+      }
+    }
+    .name{
+      width:100%;
+      font-size:.8rem !important;
+      font-weight:400 !important;
+    }
+    .name:after{
+      content:".";height:0;visibility:hidden;display:block;clear:both;
+    }
   }
 }

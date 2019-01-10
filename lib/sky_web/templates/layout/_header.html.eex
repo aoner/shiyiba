@@ -1,4 +1,4 @@
-<header class="header">
+<header class="user">
   <nav role="navigation">
     <div class="navbar-header float-left" id="navbar-header">
       <a href="/" class="navbar-brand">

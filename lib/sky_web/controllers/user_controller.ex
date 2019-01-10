@@ -1,7 +1,7 @@
 defmodule SkyWeb.UserController do
   use SkyWeb, :controller
-
   alias Sky.Accounts
+  plug :put_layout, "user.html"
   plug Sky.Plugs.RequireUser when action in [:index, :show]
 
   def index(conn, _params) do

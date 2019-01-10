@@ -1,7 +1,8 @@
 defmodule SkyWeb.SettingController do
   use SkyWeb, :controller
-
   alias Sky.Accounts
+
+  plug :put_layout, "user.html"
   plug Sky.Plugs.RequireUser # when action in [:index, :show]
   # @intercepted_action ~w(show account password profile)a
 

@@ -9,8 +9,7 @@ body{
   font-size:18px;
   background:white;
   text-align:center;
-  // background:url('/images/first.jpeg') no-repeat;
-  // background-size: 100% 100%;
+  background:#E8E8E8;
 }
 div,form,img,ul,ol,li,dl,dt,dd,table{margin:0;padding:0;border:0}
 li{list-style:none;list-style-position:outside;}
@@ -18,6 +17,12 @@ h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
 .container-fluid{
   margin:0;
   padding:0;
+}
+.main{
+  margin:-5px 0 0px;
+  padding:0;
+  text-align:left;
+  background:white;
 }
 .footer{
   line-height:3rem;
