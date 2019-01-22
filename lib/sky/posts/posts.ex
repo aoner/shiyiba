@@ -1,12 +1,12 @@
-defmodule Sky.Article do
+defmodule Sky.Posts do
   @moduledoc """
-  The Article context.
+  The Posts context.
   """
 
   import Ecto.Query, warn: false
   alias Sky.Repo
 
-  alias Sky.Article.Post
+  alias Sky.Posts.Post
 
   @doc """
   Returns the list of posts.
@@ -94,11 +94,12 @@ defmodule Sky.Article do
 
   ## Examples
 
-      iex> change_post(post)
+      iex> create_changeset(post)
       %Ecto.Changeset{source: %Post{}}
 
   """
-  def change_post(%Post{} = post) do
-    Post.changeset(post, %{})
+  def changeset(attrs \\ %{}) do
+    %Post{}
+    |> Post.changeset(attrs)
   end
 end

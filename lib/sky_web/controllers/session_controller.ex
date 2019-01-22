@@ -13,7 +13,7 @@ defmodule SkyWeb.SessionController do
     case Accounts.signin(attrs) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "欢迎来到Elixir的世界.")
+        |> put_flash(:info, "不试一把，你咱知道不行.")
         |> put_session(:current_user, user.id)
         |> redirect(to: user_path(conn, :show, user.mobile))
                         # user_path(conn, :show, current_user(@conn).mobile)

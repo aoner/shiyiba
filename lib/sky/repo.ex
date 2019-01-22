@@ -1,5 +1,6 @@
 defmodule Sky.Repo do
-  use Ecto.Repo, otp_app: :sky, adapter: Ecto.Adapters.MySQL
+  use Ecto.Repo, otp_app: :sky, adapter: Ecto.Adapters.Postgres
+  # use Ecto.Repo, otp_app: :mipha, adapter: Ecto.Adapters.Postgres
 
   @doc """
   Dynamically loads the repository url from the

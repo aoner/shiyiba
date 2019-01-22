@@ -5,7 +5,7 @@ defmodule Sky.Mixfile do
     [
       app: :sky,
       version: "0.0.1",
-      elixir: "~> 1.7",
+      elixir: "~> 1.8",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -36,7 +36,7 @@ defmodule Sky.Mixfile do
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
       {:ecto_sql, "~> 3.0.3"},
-      {:mariaex, ">= 0.9.1"},
+      {:postgrex, ">= 0.0.0"},
       {:phoenix_ecto, "~> 4.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},

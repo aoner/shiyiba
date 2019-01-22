@@ -1,0 +1,22 @@
+<header class="user">
+  <%= if current_user(@conn) do %>
+  <div class="account">
+    <div class="row">
+      <div class="col-2 col-sm-2 col-md-2" style="margin:0;padding:0;">
+        <div class="avatar"><img class="rounded-circle" src="<%= Sky.Avatar.url({@current_user.avatar, @current_user}, :thumb) %>"/></div>
+      </div>
+      <div class="col-10 col-sm-10 col-md-10" style="margin:0;padding:0;">
+        <div class="profile">
+          <div class="info">
+            <h1><%= link(current_user(@conn).name, to: user_path(@conn, :show, current_user(@conn).mobile)) %></h1>
+            <div class="name">
+              子非鱼，安知鱼之乐
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="set">设置</div>
+  </div>
+  <% end %>
+</header>

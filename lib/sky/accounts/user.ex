@@ -5,6 +5,9 @@ defmodule Sky.Accounts.User do
   import Comeonin.Bcrypt
 
   alias Sky.Accounts.User
+  # alias Sky.{
+  #   Tags.Tag
+  # }
 
 
   # 数据结构
@@ -22,6 +25,7 @@ defmodule Sky.Accounts.User do
     timestamps()
 
     has_many :commodities, Sky.Shop.Commodity
+    # has_many :topics, Topic, on_delete: :delete_all
   end
 
   def changeset(user, attrs) do
@@ -83,9 +87,9 @@ defmodule Sky.Accounts.User do
     |> validate_required([:age, :sex, :province, :city, :address])
     |> validate_inclusion(:age, 18..70)
     |> validate_inclusion(:sex, ["男","女"])
-    |> validate_length(:province, min: 3, max: 10)
-    |> validate_length(:city, min: 2, max: 20)
-    |> validate_length(:address, min: 5, max: 50)
+    |> validate_length(:province, min: 3, max: 15)
+    |> validate_length(:city, min: 2, max: 15)
+    |> validate_length(:address, min: 5, max: 30)
   end
 
   @doc """

@@ -1,7 +1,7 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+      <p>Oops, 请检查以下错误.</p>
     </div>
   <% end %>
 
@@ -11,13 +11,55 @@
     <%= error_tag f, :name %>
   </div>
 
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label f, :author, class: "control-label" %>
+        <%= text_input f, :author, class: "form-control" %>
+        <%= error_tag f, :author %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= label f, :source, class: "control-label" %>
+        <%= text_input f, :source, class: "form-control" %>
+        <%= error_tag f, :source %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :introduction, class: "control-label" %>
+    <%= text_input f, :introduction, class: "form-control" %>
+    <%= error_tag f, :introduction %>
+  </div>
+
   <div class="form-group">
     <%= label f, :body, class: "control-label" %>
+    <div id="editor-container" style="height:400px;"></div>
     <%= textarea f, :body, class: "form-control" %>
     <%= error_tag f, :body %>
   </div>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Submit", class: "btn btn-primary form-control" %>
   </div>
 <% end %>
+<script type="text/javascript">
+var quill = new Quill('#editor-container', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      ['image', 'blockquote', 'code-block'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'align': [] }],
+      ['clean']
+    ]
+  },
+  placeholder: '写点啥...',
+  theme: 'snow'
+});
+</script>

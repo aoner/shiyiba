@@ -19,6 +19,8 @@ defmodule SkyWeb.Router do
 
     get "/", PageController, :index
     get "/help", HelpController, :index
+    resources "/posts", PostController
+    resources "/commodities", CommodityController
     # 注册
     get "/signup", UserController, :new, as: :signup
     post "/signup", UserController, :create, as: :signup
@@ -35,9 +37,6 @@ defmodule SkyWeb.Router do
       get("/password", SettingController, :password, as: :password)
       get("/profile", SettingController, :profile, as: :profile)
     end
-
-    resources "/posts", PostController
-    resources "/commodities", CommodityController
   end
 
   # Other scopes may use custom stacks.

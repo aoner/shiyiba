@@ -4,7 +4,7 @@ defmodule Sky.Repo.Migrations.CreateUsers do
   def change do
     create table(:users) do
       add :mobile, :string
-      add :password, :string
+      add :password_digest, :string
       add :name, :string
       add :avatar, :string
       add :age, :integer

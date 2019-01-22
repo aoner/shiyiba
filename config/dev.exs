@@ -49,8 +49,13 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :sky, Sky.Repo,
-  username: "root",
+  # username: "root",
+  # password: "viaivi",
+  # database: "sky_dev",
+  # hostname: "localhost",
+  # pool_size: 10
+  username: "aoner",
   password: "viaivi",
-  database: "sky_dev",
+  database: "sky",
   hostname: "localhost",
   pool_size: 10

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function(env) {
@@ -8,24 +9,33 @@ module.exports = function(env) {
   return {
     // 在webpack的配置文件中配置source maps
     devtool: production ? 'source-maps' : 'eval',
+    optimization: {
+      minimizer: [
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: false
+        })
+      ]
+    },
     //已多次提及的唯一入口文件
     entry: {
-      app: ['./js/app.js', './css/app.scss']
+      app: ['./js/app.js', './css/app.scss'],
+      user: ['./js/app.js', './css/app.scss']
     },
     output: {
-      path: path.resolve(__dirname, '../priv/static/js'),//打包后的文件存放的地方
       filename: '[name].js',//打包后输出文件的文件名
-      publicPath: '/',
+      path: path.resolve(__dirname, '../priv/static/js') //打包后的文件存放的地方
     },
     module: {
       rules: [
         {
-          test: /(\.js)$/,
+          test: /\.js$/,
+          exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
-          },
-          exclude: /node_modules/
-        }, 
+            loader: "babel-loader"
+          }
+        },
         {
           test: /\.s?[ac]ss$/,
           use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
@@ -34,7 +44,7 @@ module.exports = function(env) {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].css'
+        filename: '../css/[name].css'
       }),
       new CopyWebpackPlugin([
         {
